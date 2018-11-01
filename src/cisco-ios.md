@@ -669,13 +669,23 @@ passive-interface gigabitethernet 0/0
 clear ip ospf process
 show ip protocols
 show ospf interface serial 0/0/0
+show ip ospf
 show ip ospf neighbor
+show ip ospf interface brief
+show ip ospf database
+```
+
+### Propagete default static route in OSPF updates
+
+```
+default-information originate
 ```
 
 ### OSPFv3
 
 ```
 ipv6 unicast routing
+ipv6 router ospf 10
 router-id 1.1.1.1
 ipv6 ospf area
 ```
@@ -699,12 +709,34 @@ router eigrp 1
 passive-interface gigabitethernet 0/0
 ```
 
+### Propagating a default static route within the EIGRP routing domain
+
+```
+redistribute static
+```
+
+### Bandwidth utilization
+
+```
+interface
+ip bandwidth-percent eigrp as-number percent
+```
+
+### Hello and Hold timers
+
+```
+interface
+ip hello-interval eigrp 1 50
+ip hold-time eigrp 1 150
+```
+
 Verificatie
 
 ```
 show ip protocols
 show ip eigrp neighbors
 show ip eigrp topology
+show ip eigrp topology all-links
 show running-config | section eigrp 1
 ```
 
@@ -717,11 +749,26 @@ eigrp router-id 2.0.0.0
 no shutdown
 ```
 
+### Bandwidth utilization
+
+```
+interface
+ipv6 bandwidth-percent eigrp as-number percent
+```
+
 #### Configure passive interfaces
 
 ```
 ipv6 router eigrp 2
 passive-interface gigabitethernet 0/0
+```
+
+### Hello and Hold timers
+
+```
+interface
+ipv6 hello-interval eigrp 1 50
+ipv6 hold-time eigrp 1 150
 ```
 
 Verificatie
@@ -731,3 +778,4 @@ show ipv6 protocols
 show ipv6 eigrp neighbors
 show ipv6 route
 ```
+
