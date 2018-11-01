@@ -663,6 +663,9 @@ router ospf 10
 router-id
 network x.x.x.x wildcardmask area area-id
 passive-interface gigabitethernet 0/0
+
+interface
+bandwidth X
 ```
 
 ```
