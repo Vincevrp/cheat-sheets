@@ -1,11 +1,11 @@
 ---
 title: 'Git cheat sheet'
-abstract: "Quick reference for git commands that aren't covered on a daily basis"
+abstract: "Quick reference for git commands that aren't covered on a daily basis. Basic git knowledge is required."
 ---
 
 # Rebase from upstream
 
-This also allows you to pull changes made in the original repository with your fork.
+This allows you to pull changes made in the original repository into your fork.
 
 ```
 git remote add upstream git@github.com:X/X.git
