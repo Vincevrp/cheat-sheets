@@ -2,6 +2,10 @@
 
 My personal cheat sheets.
 
+[![Travis (.com)](https://img.shields.io/travis/com/Vincevrp/cheat-sheets.svg?style=flat-square)](https://travis-ci.com/Vincevrp/cheat-sheets)
+![GitHub last commit](https://img.shields.io/github/last-commit/Vincevrp/cheat-sheets.svg?style=flat-square)
+[![GitHub license](https://img.shields.io/github/license/Vincevrp/cheat-sheets.svg?style=flat-square)](https://github.com/Vincevrp/cheat-sheets/blob/master/LICENSE)
+
 ## Building and configuration
 
 Requires pandoc, LaTeX and GNU Make.
