@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  compile:
+    image: vincevrp/docker-tex
+    command: make
+    volumes:
+      - ./Makefile:/Makefile
+      - ./templates:/templates
+      - ./src:/src
+      - ./docs:/docs
