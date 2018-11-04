@@ -1,6 +1,6 @@
 # Cheat sheets
 
-My personal cheat sheets.
+My personal cheat sheets. You can download the compiled versions on the [`gh-pages`](https://github.com/Vincevrp/cheat-sheets/tree/gh-pages) branch.
 
 [![Travis (.com)](https://img.shields.io/travis/com/Vincevrp/cheat-sheets.svg?style=flat-square)](https://travis-ci.com/Vincevrp/cheat-sheets)
 ![GitHub last commit](https://img.shields.io/github/last-commit/Vincevrp/cheat-sheets.svg?style=flat-square)
@@ -8,7 +8,7 @@ My personal cheat sheets.
 
 ## Building and configuration
 
-Requires pandoc, LaTeX and GNU Make.
+Requires LaTeX, pandoc, and GNU Make.
 
 Change settings in `templates/meta.yml` and/or add code to the header in `templates/header.tex`.
 
@@ -16,6 +16,12 @@ Build using Make:
 
 ```
 make
+```
+
+Or build using docker-compose:
+
+```
+docker-compose up
 ```
 
 This will generate a pdf version of the markdown files to the `docs/` folder.
