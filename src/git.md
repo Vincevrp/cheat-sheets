@@ -14,7 +14,7 @@ git reset --soft HEAD~1
 To delete the most recent commit, **destroying** the work you've done:
 
 ```
-git reset --soft HEAD~1
+git reset --hard HEAD~1
 ```
 
 [Source](https://stackoverflow.com/questions/3197413/how-do-i-delete-unpushed-git-commits)
