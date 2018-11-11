@@ -37,10 +37,24 @@ find . -name "*.png" -exec echo {} \; -exec touch {} \;
 
 The second command will only run if the first command runs successfully.
 
+# Watch command
+
+Used to run a certain command at a specified interval. Usage example:
+
+```
+watch -n 5 free -m
+```
+
+The -d (difference) parameter is used to highlight the differences between updates.
+
+```
+watch -d -n 5 free -m
+```
+
 # References
 
 [Find man page](https://linux.die.net/man/1/find)
 
 [Unix Stack Exchange](https://unix.stackexchange.com/)
 
-
+[The watch Command](http://www.linfo.org/watch.html)
