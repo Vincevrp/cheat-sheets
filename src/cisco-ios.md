@@ -782,3 +782,95 @@ show ipv6 eigrp neighbors
 show ipv6 route
 ```
 
+# Connecting Networks
+
+## HDLC Encapsulation
+
+```
+interfaec s0/0/0
+encapsulation hdlc
+```
+
+Verificatie
+
+```
+show controllers
+```
+
+## PPP
+
+```
+int serial 0/0/0
+encapsulation ppp
+compress preditor|stac
+ppp quality 80
+```
+
+### Multilink PPP
+
+```
+ppp multilink
+ppp multilink group 1
+```
+
+### Authentication PAP/CHAP
+
+```
+ppp authentication chap/pap
+ppp pap sent-username R1 password cisco
+```
+### Verificatie
+
+```
+show ppp multilink
+debug ppp authentication
+```
+
+## PPPoE
+
+```
+interface dialer 2
+ppp chap hostname Fred
+ppp chap password Barney
+
+ip mto 1492
+dialer pool 1
+no shut
+
+ip g0/1
+no ip
+pppoe enable
+pppoe-client dial-pool-number 1
+no shut
+```
+
+Verificatie:
+
+```
+show pppoe session
+debug ppp negotiation
+```
+
+## GRE (VPN)
+
+```
+int Tunnel10
+tunnel mode gre ip
+ip add ip sub
+tunnel source ip
+tunnel destination ip
+```
+
+Verificatie:
+
+```
+show int tunnel
+```
+
+## BGP
+
+```
+router bgp AS-num
+neighbor ip remote-as as-number
+network network-address mask
+```
