@@ -19,7 +19,7 @@ ping archlinux.org
 
 # Set the time
 timedatectl set-ntp true
-timedatectl set-ntp "Europe/Brussels"
+timedatectl set-timezone "Europe/Brussels"
 ```
 
 ## Partitioning
@@ -52,12 +52,12 @@ arch-chroot /mnt
 ## System configuration
 
 ```
-ln -sf /usr/share/Europe/Brussels /etc/localtime
+ln -sf /usr/share/zoneinfo/Europe/Brussels /etc/localtime
 hwclock --systohc --utc
 vim /etc/locale.gen # Uncomment locale in this file
 locale-gen
 echo "KEYMAP=be-latin1" >> /etc/vconsole.conf
-echo "LANG=en_UK.UTF-8" >> /etc/locale.conf
+echo "LANG=en_GB.UTF-8" >> /etc/locale.conf
 echo "xps" > /etc/hostname
 ```
 
