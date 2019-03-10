@@ -66,7 +66,9 @@ echo "xps" > /etc/hostname
 Edit hooks in `/etc/mkinitcpio.conf` to:
 
 ```
-HOOKS=(base udev autodetect modconf block keyboard keymap encrypt filesystem fsck)
+MODULES(ahci sd_mod ext4)
+BINARIES=(fsck fsck.ext4)
+HOOKS=(base systemd keyboard sd-vconsole sd-encrypt)
 mkinitcpio -p linux
 ```
 
@@ -89,8 +91,10 @@ In `/boot/loader/entries/arch.conf:`
 title Arch Linux
 linux /vmlinuz-linux
 initrd /initramfs-linux.img
-options cryptdevice=UUID=___UUID_HERE___:cryptroot root=/dev/mapper/cryptroot quiet rw
+options luks.name=___UUID_HERE___=cryptroot root=/dev/mapper/cryptroot nvme_core.default_ps_max_latency_us=5500 quiet rw
 ```
+
+The nvme parameter is related to the following issue: `https://wiki.archlinux.org/index.php/Solid_State_Drive/NVMe#Samsung_drive_errors_on_Linux_4.10`
 
 ## Post-installation
 
@@ -127,4 +131,3 @@ alias dotfiles='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 dotfiles checkout
 dotfiles config --local status.showUntrackedFiles no
 ```
-
