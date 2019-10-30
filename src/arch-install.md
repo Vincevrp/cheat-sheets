@@ -100,6 +100,7 @@ The nvme parameter is related to the following issue: `https://wiki.archlinux.or
 
 ```
 useradd -m -G wheel vince
+passwd vince
 ```
 
 Add the following to `/etc/sudoers`:
