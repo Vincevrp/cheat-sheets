@@ -39,7 +39,7 @@ mkfs.ext4 /dev/mapper/rootpart
 mount /dev/mapper/rootpart /mnt
 mkdir /mnt/boot
 mount /dev/nvme0n1p1 /mnt/boot
-pacstrap /mnt base base-devel vim git zsh dialog wpa_supplicant
+pacstrap /mnt base base-devel linux linux-firmware vim git zsh dialog wpa_supplicant
 ```
 
 ## Genfstab and chroot
